@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Date: {{date.strftime('%Y-%m-%d')}}</p>
+<p>Amount: {{amount}}</p>
+<p>FromCCY: {{counterCurrency}}</p>
+<p>ToCCY: {{baseCurrency}}</p>
+<p>Converted Amount: {{"%.4f" % convertedAmount}}</p>
+
+{% endblock %}
