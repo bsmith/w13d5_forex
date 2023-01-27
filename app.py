@@ -5,12 +5,12 @@ from exchange_rate import ExchangeRate
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template('index.html')
-
 ExchangeRate.loadData()
 currencies = list(ExchangeRate.data["2023-01-26"].keys())
+
+@app.route("/")
+def home():
+    return render_template('index.html', currencies=currencies)
 
 @app.route("/convert", methods=["POST"])
 def convert():
@@ -20,7 +20,6 @@ def convert():
     baseCurrency = request.form['toCCY']
     convertedAmount = ExchangeRate.at(date, baseCurrency, counterCurrency)
     return render_template('result.html',
-        currencies=currencies,
         date=date,
         amount=amount,
         counterCurrency=counterCurrency,

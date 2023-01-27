@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<p>{{elephant}}</p>
+
 <form method="POST" action="{{ url_for('convert') }}">
     <label for="date">Date:</label>
     <input type="date" id="date" name="date">
@@ -9,10 +11,20 @@
     <input type="number" id="amount" name="amount">
 
     <label for="fromCCY">From:</label>
-    <input type="text" id="fromCCY" name="fromCCY">
+    <!-- <input type="text" id="fromCCY" name="fromCCY"> -->
+    <select id="fromCCY" name="fromCCY">
+        {% for currency in currencies %}
+        <option value="{{currency}}">{{currency}}</option>
+        {% endfor %}
+    </select>
 
     <label for="toCCY">To:</label>
-    <input type="text" id="toCCY" name="toCCY">
+    <!-- <input type="text" id="toCCY" name="toCCY"> -->
+    <select id="toCCY" name="toCCY">
+        {% for currency in currencies %}
+        <option value="{{currency}}">{{currency}}</option>
+        {% endfor %}
+    </select>
 
     <input type="submit">
 </form>
