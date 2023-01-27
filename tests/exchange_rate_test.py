@@ -8,7 +8,7 @@ class TestExchangeRate(unittest.TestCase):
         pass
 
     def test_at_example_1(self):
-        # GBP is the base current and USD is the counter currency
+        # GBP is the base currency and USD is the counter currency
         # returns how many GBP one USD is worth
         rate = ExchangeRate.at(date(2023,1,26), 'GBP', 'USD')
         # from example.xml:
