@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>{{elephant}}</p>
-
 <form method="POST" action="{{ url_for('convert') }}">
     <label for="date">Date:</label>
     <input type="date" id="date" name="date">
