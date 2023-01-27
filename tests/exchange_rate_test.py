@@ -15,4 +15,4 @@ class TestExchangeRate(unittest.TestCase):
         #   20230126 1 EUR = 0.8794 GBP
         #   20230126 1 EUR = 1.0895 USD
         # (1 USD) / (1.0895 USD/EUR) * (0.8794 GBP/EUR)
-        self.assertAlmostEqual(0.80716, rate, decimal=4)
+        self.assertAlmostEqual(0.80716, rate, places=4)
